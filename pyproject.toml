@@ -1,7 +1,7 @@
 [project]
 name = "health-booking-system"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Django-based Health Appointment Booking System with role-based access for patients, doctors, and admins, supporting appointment scheduling, notifications, and PostgreSQL integration"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
