@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Third-party apps
+    "rest_framework",
+
 
     # Local apps
     "accounts",
@@ -84,6 +87,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "health_booking_system.wsgi.application"
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
 # Database
@@ -91,8 +95,12 @@ WSGI_APPLICATION = "health_booking_system.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env.str("DB_NAME"),
+        "USER": env.str("DB_USER"),
+        "PASSWORD": env.str("DB_PASSWORD"),
+        "HOST": env.str("DB_HOST"),
+        "PORT": env.int("DB_PORT")
     }
 }
 
