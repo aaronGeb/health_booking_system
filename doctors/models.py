@@ -51,7 +51,7 @@ class Doctor(models.Model):
     class Meta:
         verbose_name = "Doctor Profile"
         verbose_name_plural = "Doctors Profiles"
-        ordering = ["user__last_name", "user__first_name"]
+        ordering = [ "user__first_name", "user__last_name"]
 
 
 class DoctorAvailability(models.Model):
