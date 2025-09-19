@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+
 class CustomUser(AbstractUser):
     USER_TYPE_CHOICES = (
         ("patient", "Patient"),
@@ -15,9 +16,6 @@ class CustomUser(AbstractUser):
     date_of_birth = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    is_patient = models.BooleanField(default=False)
-    is_doctor = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.username} ({self.user_type})"
