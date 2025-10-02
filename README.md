@@ -10,7 +10,7 @@ A Django-based healthcare booking platform that allows patients to schedule, man
 - Containerized setup with Docker & Docker Compose
 - Easy DB inspection with Adminer
   
-## projct Structure
+## project Structure
 ```
 health_booking_system/
 ├── manage.py
