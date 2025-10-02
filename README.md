@@ -10,11 +10,11 @@ A Django-based healthcare booking platform that allows patients to schedule, man
 - Containerized setup with Docker & Docker Compose
 - Easy DB inspection with Adminer
   
-## project Structure
+## Project Structure
 ```
 health_booking_system/
 ├── manage.py
-├── requirements.txt
+├── requirements.toml
 ├── .env
 ├── health_booking_system/
 │   ├── __init__.py
@@ -42,13 +42,9 @@ health_booking_system/
 ## Tech Stack
 
 - Backend: Django, Django REST Framework
-
 - Database: PostgreSQL
-
 - Containerization: Docker & Docker Compose
-
 - Package Manager: uv
-
 - DB Management: Adminer
 
 
@@ -208,14 +204,22 @@ cd health-booking-system
 ```
 ### 2.Create and configure `.env`
 ```
+# database settings
+DB_ENGINE=django.db.backends.postgresql
 POSTGRES_DB=health_system_db
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=test
 DB_HOST=db
 DB_PORT=5432
-SECRET_KEY=your-secret-key
+# adminer settings
+ADMINER_DEFAULT_SERVER=health_postgres
+ADMINER_PORT=8080
+
+# django settings
+
 DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
+SECRET_KEY=your-secret-key
+ALLOWED_HOSTS=localhost,
 ```
 ### 3.Build and start containers
 ```
