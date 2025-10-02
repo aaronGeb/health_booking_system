@@ -1,5 +1,5 @@
 # Health Appointment Booking System
-A comprehensive web-based healthcare management system built with Django that enables patients to book appointments with doctors, manage medical records, and streamline healthcare administration
+A Django-based healthcare booking platform that allows patients to schedule, manage, and track appointments with doctors. Built with Django, Django REST Framework, PostgreSQL, Docker, and Adminer for easy database management.
 
 ## Features
 
