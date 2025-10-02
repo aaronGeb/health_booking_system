@@ -1,11 +1,58 @@
 # Health Appointment Booking System
 A comprehensive web-based healthcare management system built with Django that enables patients to book appointments with doctors, manage medical records, and streamline healthcare administration
 
+## Features
+
+- User authentication & role-based access (patients, doctors, admins)
+- Appointment scheduling and management
+- Patient profile and medical history tracking
+- Admin dashboard for managing doctors, patients, and appointments
+- Containerized setup with Docker & Docker Compose
+- Easy DB inspection with Adminer
+  
+## projct Structure
+```
+health_booking_system/
+├── manage.py
+├── requirements.txt
+├── .env
+├── health_booking_system/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── accounts/
+├── appointments/
+├── doctors/
+├── patients/
+├── medical_records/
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── media/
+└── templates/
+    ├── base.html
+    ├── accounts/
+    ├── appointments/
+    ├── doctors/
+    └── patients/
+```
+
+## Tech Stack
+
+- Backend: Django, Django REST Framework
+
+- Database: PostgreSQL
+
+- Containerization: Docker & Docker Compose
+
+- Package Manager: uv
+
+- DB Management: Adminer
 
 
-
-
-## EDR
+##  Entity Relationship Diagram (EDR)
 
 ```mermaid
 
@@ -153,3 +200,43 @@ erDiagram
     Appointment ||--o| MedicalRecord : "generates"
     MedicalRecord ||--o{ Prescription : "contains"
 ```  
+## Installation
+### 1.Clone the repository
+```
+git clone https://github.com/aarongeb/health-booking-system.git
+cd health-booking-system
+```
+### 2.Create and configure `.env`
+```
+POSTGRES_DB=health_system_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=test
+DB_HOST=db
+DB_PORT=5432
+SECRET_KEY=your-secret-key
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+```
+### 3.Build and start containers
+```
+docker-compose up --build
+```
+### 4.Run migrations
+```
+docker exec -it health_booking_system uv run python manage.py migrate
+```
+### 5.Create a superuser
+```
+docker exec -it health_booking_system uv run python manage.py createsuperuser
+```
+
+### Contributing
+- Fork the repo
+- Create your feature branch: git checkout -b feature/my-feature
+- Commit changes: git commit -m "Add new feature"
+- Push to branch: git push origin feature/my-feature
+- Open a Pull Request
+## License
+
+This project is licensed under the MIT License. See the LICENSE
+ file for details.
